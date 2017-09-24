@@ -1,0 +1,10 @@
+{
+  "name": "weather_logger",
+  "version": "1.0.0",
+  "description": "Datalogger for Weather Data",
+  "main": "app.js",
+  "author": "dgrill",
+  "dependencies": {
+    "mongodb": "^2.2.11"
+  }
+}

@@ -1,0 +1,42 @@
+{
+    "coord": {
+        "lon": 14.26,
+        "lat": 48.01
+    },
+    "weather": [
+        {
+            "id": 801,
+            "main": "Clouds",
+            "description": "few clouds",
+            "icon": "02d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 26,
+        "pressure": 1020,
+        "humidity": 39,
+        "temp_min": 26,
+        "temp_max": 26
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.6,
+        "deg": 110
+    },
+    "clouds": {
+        "all": 12
+    },
+    "dt": 1502729400,
+    "sys": {
+        "type": 1,
+        "id": 5932,
+        "message": 0.0032,
+        "country": "AT",
+        "sunrise": 1502683044,
+        "sunset": 1502734595
+    },
+    "id": 7872148,
+    "name": "Waldneukirchen",
+    "cod": 200
+}
