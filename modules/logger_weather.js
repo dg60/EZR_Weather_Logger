@@ -41,32 +41,50 @@ module.exports = {
             });
 
             res.on('end', function () {
+        
+                let timestamp = new Date();
 
-                _data = JSON.parse(output);
+                try{
+                    _data = JSON.parse(output);
+                }catch (e){
+                    console.error('Incorrect Data: ' + output);
+                    console.error( e  + " " + timestamp);
+                    
+                }
+                
 
-                // Main data
-                _dataWeather.temp = _data.main.temp;
-                _dataWeather.pressure = _data.main.pressure;
-                _dataWeather.humidity = _data.main.humidity;
-                _dataWeather.weather_main = _data.weather[0].main;
-                _dataWeather.weather_description = _data.weather[0].description;
-                //wind data
-                _dataWeather.wind_speed = _data.wind.speed;
-                _dataWeather.wind_deg = _data.wind.deg;
+                try{
+                        // Main data
+                        _dataWeather.temp = _data.main.temp;
+                        _dataWeather.pressure = _data.main.pressure;
+                        _dataWeather.humidity = _data.main.humidity;
+                        _dataWeather.weather_main = _data.weather[0].main;
+                        _dataWeather.weather_description = _data.weather[0].description;
+                        //wind data
+                        _dataWeather.wind_speed = _data.wind.speed;
+                        _dataWeather.wind_deg = _data.wind.deg;
+        
+                        // Debug
+                        console.log('Temp: ' + _dataWeather.temp);
+                        console.log('Pressure: ' + _dataWeather.pressure);
+                        console.log('Humidity: ' + _dataWeather.humidity);
+                        console.log('Weather Main: ' + _dataWeather.weather_main);
+                        console.log('Weather Description: ' + _dataWeather.weather_description);
+                        console.log('Wind speed: ' + _dataWeather.wind_speed);
+                        console.log('Wind deg: ' + _dataWeather.wind_deg);
+                        console.log('Timestamp: ' + _dataWeather.created);
+        
+                        // Init
+                        output = '';
+                }catch (e){
+                    console.error(timestamp + ' ' + 'Error _data Object:' + _data.main);
+                    console.error( e  + " " + timestamp);
+                    // Init
+                    output = '';
+                }
+                    
 
-                // Debug
-                console.log('Temp: ' + _dataWeather.temp);
-                console.log('Pressure: ' + _dataWeather.pressure);
-                console.log('Humidity: ' + _dataWeather.humidity);
-                console.log('Weather Main: ' + _dataWeather.weather_main);
-                console.log('Weather Description: ' + _dataWeather.weather_description);
-                console.log('Wind speed: ' + _dataWeather.wind_speed);
-                console.log('Wind deg: ' + _dataWeather.wind_deg);
-                console.log('Timestamp: ' + _dataWeather.created);
-
-                // Init
-                output = '';
-
+                
             });
         });
 
